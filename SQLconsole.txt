@@ -1,3 +1,10 @@
+
+SET PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Users\Vicky>mysql -u yourUserName -p yourDatabaseName < "C:\Users\Vicky\Desktop\Repository\w3schools-database\w3schools.sql"
+
+
+
 Enter password: ************
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 9
@@ -1945,4 +1952,71 @@ ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that 
 mysql> CREATE TABLE countries ( country_id CHAR(2) CONSTRAINT country_id_nn NOT NULL, country_name VARCHAR2(40), region_id NUMBER, CONSTRAINT country_c_id_pk PRIMARY KEY (country_id) )
     -> ;
 ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT NULL, country_name VARCHAR2(40), region_id NUMBER, CONSTRAINT country_c_id_p' at line 1
+mysql>
+
+
+
+
+
+
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| testdb             |
+| vick               |
+| vicks              |
+| w3schools          |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use testdb;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_testdb |
++------------------+
+| customers        |
+| persons          |
+| test             |
++------------------+
+3 rows in set (0.01 sec)
+
+mysql> CREATE TABLE Resident ( ID int(6) NOT NULL UNIQUE, NAME varchar(10), ADDRESS varchar(20) );INSERT INTO Resident values(1,"Deepak", "Jaipur");insert into Resident values(2,"Moud", "Jodhpur");update Resident set address="Banglor" where Id=2;delete from Resident where id=1;-- DROP TABLE Resident;select * from Resident;
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+Query OK, 1 row affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_testdb |
++------------------+
+| customers        |
+| persons          |
+| resident         |
+| test             |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from resident;
++----+------+---------+
+| ID | NAME | ADDRESS |
++----+------+---------+
+|  2 | Moud | Banglor |
++----+------+---------+
+1 row in set (0.00 sec)
+
 mysql>
